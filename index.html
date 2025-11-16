@@ -48,10 +48,10 @@
                         <input type="number" class="form-control" id="risk" placeholder="Enter risk amount ">
                     </div>
 
-                    <!-- <div class="mb-3">
-                        <label class="form-label">Pip Value ($)</label>
+                    <div class="mb-3">
+                        <label class="form-label">Pip Value</label>
                         <input type="number" class="form-control" id="pipvalue" value="10">
-                    </div> -->
+                    </div>
 
                     <button class="btn btn-primary w-100" onclick="calculate()">
                         Calculate
@@ -65,12 +65,11 @@
     </div>
 
     <script>
-     var pipValue = 10;
         function calculate() {
             let sl = parseFloat(document.getElementById("sl").value);
             let tp = parseFloat(document.getElementById("tp").value);
             let risk = parseFloat(document.getElementById("risk").value);
-            // let pipValue = parseFloat(document.getElementById("pipvalue").value);
+            let pipValue = parseFloat(document.getElementById("pipvalue").value);
 
             if (isNaN(sl) || isNaN(tp) || isNaN(risk) || isNaN(pipValue)) {
                 alert("Please fill in all fields.");
