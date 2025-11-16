@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lot Size Calculator</title>
+
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #0275d8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #025aa5;
+        }
+        .result {
+            margin-top: 20px;
+            background: #e8ffe8;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lot Size Calculator (CFD Forex)</h2>
+
+    <div class="box">
+        <label>Stop Loss (Pips):</label>
+        <input type="number" id="sl" placeholder="Enter stop loss (pips)" />
+
+        <label>Take Profit (Pips):</label>
+        <input type="number" id="tp" placeholder="Enter target (pips)" />
+
+        <label>Risk Amount ($):</label>
+        <input type="number" id="risk" placeholder="Enter how much money you risk" />
+
+        <label>Pip Value ($):</label>
+        <input type="number" id="pipvalue" value="10" />
+
+        <button onclick="calculate()">CALCULATE</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            let sl = parseFloat(document.getElementById("sl").value);
+            let tp = parseFloat(document.getElementById("tp").value);
+            let risk = parseFloat(document.getElementById("risk").value);
+            let pipValue = parseFloat(document.getElementById("pipvalue").value);
+
+            if (isNaN(sl) || isNaN(tp) || isNaN(risk) || isNaN(pipValue)) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Full precision lot size
+            let rawLot = risk / (sl * pipValue);
+
+            // Rounded for display
+            let lotSize = rawLot.toFixed(2);
+
+            // Correct TP calculation using FULL precision
+            let takeProfitValue = tp * rawLot * pipValue;
+            takeProfitValue = takeProfitValue.toFixed(2);
+
+            // Show result
+            document.getElementById("output").innerHTML = `
+                <div class="result">
+                    <strong>Lot Size:</strong> ${lotSize}<br>
+                    <strong>Total Risk:</strong> $${risk}<br>
+                    <strong>Expected TP:</strong> $${takeProfitValue}<br>
+                    <strong>SL (pips):</strong> ${sl}<br>
+                    <strong>TP (pips):</strong> ${tp}
+                </div>
+            `;
+        }
+    </script>
+
+</body>
+</html>
