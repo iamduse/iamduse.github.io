@@ -34,24 +34,24 @@
                     <h2 class="text-center mb-4">Lot Size Calculator</h2>
 
                     <div class="mb-3">
-                        <label class="form-label">Stop Loss (Pips)</label>
-                        <input type="number" class="form-control" id="sl" placeholder="Enter stop loss (pips)">
+                        <label class="form-label">Stop Loss Pips</label>
+                        <input type="number" class="form-control" id="sl" placeholder="Enter your stop loss">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Take Profit (Pips)</label>
-                        <input type="number" class="form-control" id="tp" placeholder="Enter target (pips)">
+                        <label class="form-label">Target Pips</label>
+                        <input type="number" class="form-control" id="tp" placeholder="Enter your target pips">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Risk Amount ($)</label>
-                        <input type="number" class="form-control" id="risk" placeholder="Enter risk amount ($)">
+                        <label class="form-label">Risk Amount </label>
+                        <input type="number" class="form-control" id="risk" placeholder="Enter risk amount ">
                     </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label class="form-label">Pip Value ($)</label>
                         <input type="number" class="form-control" id="pipvalue" value="10">
-                    </div>
+                    </div> -->
 
                     <button class="btn btn-primary w-100" onclick="calculate()">
                         Calculate
@@ -85,11 +85,11 @@
 
             document.getElementById("output").innerHTML = `
                 <div class="result-box">
-                    <p><strong>Lot Size:</strong> ${lotSize}</p>
-                    <p><strong>Total Risk:</strong> $${risk}</p>
-                    <p><strong>Expected TP:</strong> $${takeProfitValue}</p>
-                    <p><strong>SL (pips):</strong> ${sl}</p>
-                    <p><strong>TP (pips):</strong> ${tp}</p>
+                    <p><strong>Lot Size:</strong> "Your Lot size is: ${lotSize}"</p>
+                    <p><strong>Total Risk:</strong>"Your total risk is:  $${risk}"</p>
+                    <p><strong>Expected TP:</strong>"Your expect Profit is: $${takeProfitValue}"</p>
+                    <p><strong>"Good luck</strong></p>
+                    
                 </div>
             `;
         }
