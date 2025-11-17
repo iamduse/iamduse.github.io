@@ -197,39 +197,13 @@
             </div>
         `;
     }
-    <footer>
-   <p id="visitorCount">Loading visitors...</p>
-    </footer>
-
-  // Namespace & key (unique for your site)
-  const namespace = "iamduse.github.io";
-  const key = "visitor_count";
-
-  // API URL for incrementing visitor count
-  const apiUrl = `https://api.countapi.xyz/hit/${namespace}/${key}`;
-
-  // Variable to store the count
-  let totalVisitors = 0;
-
-  // Fetch the visitor count
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      totalVisitors = data.value; // assign to variable
-      document.getElementById("visitorCount").innerText =
-        "Total Visitors: " + totalVisitors;
-    })
-    .catch(err => {
-      document.getElementById("visitorCount").innerText =
-        "Visitor counter error";
-      console.error(err);
-    });
+   
 </script>
 
 </body>
 <footer>
     Made with <span style="color:red;">❤️</span> by Mohamed Duse
-    <p id="visitorCount">Loading visitors ...</p>
+
 </footer>
 
 </html>
